@@ -3,7 +3,7 @@
 	<head>
 
 		<!-- Application title -->
-		<title>Zen Tran - A multi-source translation program.</title>
+		<title>Zen Tran - A multisource translation program.</title>
 
 		<!-- Stylesheets -->
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -15,21 +15,44 @@
 
 	</head>
 
-	<script type="text/javascript">
-	
-		alert("Ready...");
-
-	</script>
-
 	<body>
+
 		<header>
-
 			<!-- Close Button -->
-			<button class="btn btn-danger" id="close">Close</button>
-
+			<!-- <button class="btn btn-danger" id="close">Close</button> -->
 			<!-- Minimise Button -->
-			<button class="btn btn-primary" id="minimise">Minimise</button>
-
+			<!-- <button class="btn btn-primary" id="minimise">Minimise</button> -->
 		</header>
+
+		<div class="container">
+			<div class="row">
+				<!-- Setting containers -->
+				<div class="col-xs-2"></div>
+				<div class="col-xs-8">
+
+					<!-- Link area for the story -->
+					<div class="panel panel-default" style="margin-top: 50px;">
+						<div class="panel-heading">
+							Start here...
+						</div>
+						<div class="panel-body">
+							<!-- Form for entering the book URL -->
+							<form>
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1">URL</span>
+									<input type="text" class="form-control" placeholder="Book URL" aria-describedby="basic-addon1">
+								</div>
+						</div>
+						<div class="panel-footer">
+								<button type="submit" class="btn btn-success">Translate</button>
+							</form>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-xs-2"></div>
+			</div>
+		</div>
+
 	</body>
 </html>

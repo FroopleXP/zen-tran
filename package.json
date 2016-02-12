@@ -10,7 +10,7 @@
   "window": {
     "toolbar": true,
     "resizable": false,
-    "frame": false
+    "frame": true
   },
   "devDependencies": {},
   "scripts": {
