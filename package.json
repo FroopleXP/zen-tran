@@ -1,0 +1,27 @@
+{
+  "name": "zen_tran",
+  "version": "1.0.0",
+  "description": "Zen - A multiple source translation program.",
+  "main": "index.html",
+  "dependencies": {
+    "nodewebkit": "~0.11.6",
+    "nodemon": "~1.8.1"
+  },
+  "window": {
+    "toolbar": true,
+    "resizable": false
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodewebkit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FroopleXP/zen-tran.git"
+  },
+  "author": "Connor Edwards",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/FroopleXP/zen-tran/issues"
+  }
+}
