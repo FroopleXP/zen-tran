@@ -12,6 +12,7 @@
 		<!-- Main application code -->
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/button_control.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
 
 	</head>
 
@@ -37,10 +38,10 @@
 						</div>
 						<div class="panel-body">
 							<!-- Form for entering the book URL -->
-							<form>
+							<form id="book_form">
 								<div class="input-group">
 									<span class="input-group-addon" id="basic-addon1">URL</span>
-									<input type="text" class="form-control" placeholder="Book URL" aria-describedby="basic-addon1">
+									<input type="text" name="book_url" class="form-control" placeholder="Book URL" aria-describedby="basic-addon1">
 								</div>
 						</div>
 						<div class="panel-footer">
@@ -48,6 +49,9 @@
 							</form>
 						</div>
 					</div>
+
+					<!-- Used to display errors -->
+					<div role="alert" id="error_box"></div>
 
 				</div>
 				<div class="col-xs-2"></div>
