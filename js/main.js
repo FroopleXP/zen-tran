@@ -1,4 +1,11 @@
 //////////////////////////////////////////////////
+// 		
+//		ZEN TRAN - MULTISOURCE TRANSLATOR
+// 		WRITTEN BY: CONNOR EDWARDS
+//		START: 12/2/16
+//
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
 // MAIN CONTROL SCRIPT
 //////////////////////////////////////////////////
 $(document).ready(function() {
@@ -39,11 +46,15 @@ function request_book(url) {
 			method: "GET",
 			url: url,
 			timeout: 10000,
+			dataType: 'html',
 			success: function(data) {
 				// Yay! We have data.
-				console.log(data);
 				show_noti(1, "<b>Success! </b>Data was collected from that URL");
-				show_progress_text(0);
+				show_progress_text(1, "Parsing data...");
+
+				// Parsing the data to only get the chapter
+				parse_html_response(data);
+
 			},
 			error: function(xhr) {
 				// Oops! Somthing went wrong... Checking the response code
@@ -64,6 +75,43 @@ function request_book(url) {
 			}
 		});
 	}
+}
+
+// Function for parsing html data
+function parse_html_response(data) {
+	// Extracting the data from the site based on the containing ID
+	var book_body = $("#novel_honbun", data).html();
+	// Checking that there is data
+	if (!book_body) {
+
+		// No data!
+		show_noti(0, "<b>Oh dear! </b>Looks like that site doesn't contain the right info...");
+		show_progress_text(0, "Data failed to parse!");
+
+	} else {
+
+		// Data, yay!
+		show_noti(1, "<b>Woohoo! </b>The data was parsed succesfully.");
+		show_progress_text(1, "Data parsed!");
+		// Pushing the newly parsed data into an array ready for translating
+		push_parsed_to_array(book_body);
+
+	}
+}
+
+// Function that pushes the book data into an array
+function push_parsed_to_array(data_to_push) {
+	// Creating the array - it seperates each line via the HTML "<br>" tag
+	// First we wipe all the break tags from the data
+	var data_in_array = data_to_push.split('<br>');
+
+	// FOR TESTING PURPOSES!!!
+	console.dir(data_in_array);
+
+	//////////////////////////////////////////////////
+	// THE PROGRAM NOW GOES ON TO TRANSLATE 
+	// EACH LINE OF THE BOOK
+	//////////////////////////////////////////////////
 }
 
 // Function for parsing the form data
@@ -91,7 +139,7 @@ function show_progress_text(active, text) {
 			show_progress.text("");
 			break;			
 		case 1:
-			show_progress.text(text);
+			show_progress.html("<i>" + text + "</i>");
 			break;
 		default:
 			show_progress.text("");
